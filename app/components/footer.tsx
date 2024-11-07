@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Twitter, Twitch, Youtube } from 'lucide-react'
+import {  Twitch, Youtube } from 'lucide-react'
 import { BsDiscord } from 'react-icons/bs'
+import { FaXTwitter } from "react-icons/fa6";
 const socialLinks = [
-  { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/feline' },
+  { name: 'Twitter', icon: FaXTwitter, url: 'https://twitter.com/feline' },
   { name: 'Twitch', icon: Twitch, url: 'https://twitch.tv/feline' },
   { name: 'Youtube', icon: Youtube, url: 'https://youtube.com/feline' },
   { name: 'Discord', icon: BsDiscord, url: 'https://discord.gg/feline' },
