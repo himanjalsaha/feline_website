@@ -13,8 +13,9 @@ export default function Hero() {
   const [time, setTime] = useState("00:00")
   const { width }  = useWindowSize(); 
 
-  const mobileImage = "/heromobile.jpg";
-  const desktopImage = "/HERO.jpg";
+  const heroImage = width <= 768  ?  "/heromobile.jpg" : "/HERO.jpg"
+
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -29,7 +30,7 @@ export default function Hero() {
   return (
     <div className="relative bg-black min-h-screen overflow-hidden">
        <Image 
-         src={width < 768 ? mobileImage : desktopImage}
+         src={heroImage}
          alt="Background"
          layout="fill"
          objectFit="cover"
@@ -38,33 +39,11 @@ export default function Hero() {
          className="z-0"
        />
 
-      {/* Animated Background Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute -left-1/4 top-1/4 w-[900px] h-[900px] rounded-full bg-purple-900/20 blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div 
-          className="absolute -right-1/4 top-1/2 w-[800px] h-[800px] rounded-full bg-purple-800/20 blur-3xl"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.2, 0.25, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+<div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -left-1/4 top-1/4 w-[800px] h-[800px] rounded-full bg-purple-900/20 blur-[120px] animate-pulse" />
+        <div className="absolute -right-1/4 bottom-1/4 w-[600px] h-[600px] rounded-full bg-indigo-900/20 blur-[100px] animate-pulse delay-1000" />
       </div>
+
 
       {/* Navigation */}
       <nav className="relative z-50">
