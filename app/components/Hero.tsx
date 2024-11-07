@@ -12,6 +12,7 @@ export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [time, setTime] = useState("00:00")
   const { width }  = useWindowSize(); 
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const heroImage = width <= 768  ?  "/heromobile.jpg" : "/HERO.jpg"
 
@@ -29,15 +30,17 @@ export default function Hero() {
 
   return (
     <div className="relative bg-black min-h-screen overflow-hidden">
-       <Image 
-         src={heroImage}
-         alt="Background"
-         layout="fill"
-         objectFit="cover"
-         objectPosition="center"
-         priority
-         className="z-0"
-       />
+      <Image
+  key={heroImage} // This forces a re-render on source change
+  src={heroImage}
+  alt="Background"
+  fill
+  style={{ objectFit: "cover", objectPosition: "center" }}
+  priority
+  className={`z-0 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+      onLoadingComplete={() => setIsImageLoaded(true)}
+/>
+
 
 <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-1/4 top-1/4 w-[800px] h-[800px] rounded-full bg-purple-900/20 blur-[120px] animate-pulse" />
