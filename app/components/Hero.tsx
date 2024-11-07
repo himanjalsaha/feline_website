@@ -57,8 +57,9 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Link href="/" className="text-xl font-bold text-white tracking-wider">
+              <Link href="/" className="text-xl flex justify-start items-center font-bold text-white tracking-wider">
                 フェリン // FELINE
+                <Image src="/logo.png" alt="logo" width={100} height={100} className="size-14 p-2"/>
               </Link>
             </motion.div>
             
