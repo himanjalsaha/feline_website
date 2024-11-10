@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, RotateCcw } from 'lucide-react'
+import Image from 'next/image'
 import { TacticalElement } from './About'
 import Gradient from './Gradient'
 
@@ -64,15 +65,20 @@ export default function FelineJerseyShowcase() {
               {/* Jersey Image */}
               <div className="relative group">
                 <div className="absolute inset-0" />
-                <motion.img
+                <motion.div
                   key={isBackView ? 'back' : 'front'}
-                  src={isBackView ? jersey.backImage : jersey.frontImage}
-                  alt={`${jersey.name} - ${isBackView ? 'Back' : 'Front'} View`}
-                  className="w-full h-auto rounded-xl"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                />
+                  className="relative w-full aspect-[3/4]"
+                >
+                  <Image
+                    src={isBackView ? jersey.backImage : jersey.frontImage}
+                    alt={`${jersey.name} - ${isBackView ? 'Back' : 'Front'} View`}
+                    fill
+                    className="object-cover rounded-xl"
+                  />
+                </motion.div>
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#0F1629] to-transparent" />
                 <button
                   onClick={() => setIsBackView(!isBackView)}
