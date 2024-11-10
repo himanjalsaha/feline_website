@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/JoinusForm.jsx", "app/players/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/JoinusForm.jsx", "app/players/page.jsx", "app/jerseys/page.jsx"],
   "exclude": ["node_modules"]
 }

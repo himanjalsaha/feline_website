@@ -119,7 +119,7 @@ export default function Hero() {
               initial={{ height: 0 }}
               animate={{ height: "6rem" }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute -top-4 left-[47%] md:left-[47.9%]  lg:left-[48.8%]  -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-[#613AE8] to-transparent"
+              className="absolute -top-4 left-[47.1%] md:left-[47.9%]  lg:left-[48.8%]  -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-[#613AE8] to-transparent"
             />
             <motion.h1
               initial={{ opacity: 0, y: 20 }}

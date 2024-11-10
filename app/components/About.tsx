@@ -6,7 +6,7 @@ import { ChevronRight, Terminal } from 'lucide-react'
 import Link from 'next/link'
 import Gradient from './Gradient'
 
-const TacticalElement = ({ children }: { children: React.ReactNode }) => (
+export const TacticalElement = ({ children }: { children: React.ReactNode }) => (
   <div className="text-xs text-[#613AE8] font-mono border border-[#613AE8]/20 px-3 py-1.5 rounded-none relative">
     <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#613AE8]" />
     <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#613AE8]" />
@@ -51,6 +51,9 @@ const AnimatedSection = ({ children, delay = 0 }: { children: React.ReactNode; d
 export default function AboutFeline() {
   return (
     <div className="bg-[#0B0014] text-white min-h-screen py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#613AE8]/20 blur-[100px] -translate-x-1/2 translate-y-1/2" />
+      <div className="absolute bottom-20 right-0 w-[400px] h-[400px] rounded-full bg-[#613AE8]/20 blur-[100px] translate-x-1/2 translate-y-1/2" />
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
       
       <div className="max-w-7xl mx-auto relative">
@@ -143,14 +146,14 @@ export default function AboutFeline() {
     {'>'} Ready for battle? Join Feline Esports, where the best compete, innovate, and dominate.
   </p>
   <div className='space-y-4 gap-5 mt-10'>
-  <a href="/players">
+  <Link href="/players">
     <button className="bg-transparent border border-[#613AE8] px-4 py-4 text-sm text-purple-300 hover:bg-[#613AE8]/10 transition-colors">
       <span className="relative">SHOW PLAYERS</span>
     </button>
-  </a>
+  </Link>
 
   {/* JOIN FORCE Button */}
-  <Link href="/players">
+  <Link href="/join">
     <button className="bg-transparent mx-2 border border-[#613AE8] px-4 py-4 text-sm text-purple-300 hover:bg-[#613AE8]/10 transition-colors">
       <span className="relative">JOIN FORCE</span>
     </button>
