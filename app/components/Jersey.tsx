@@ -77,6 +77,8 @@ export default function FelineJerseyShowcase() {
                     alt={`${jersey.name} - ${isBackView ? 'Back' : 'Front'} View`}
                     fill
                     className="object-cover rounded-xl"
+                    priority={true}
+
                   />
                 </motion.div>
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#0F1629] to-transparent" />
