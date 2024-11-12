@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import CyberpunkFooter from "./components/footer";
+import Navbar from "./components/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${helveticaNeue.variable} ${asgard.variable}  font-helvetica-neue antialiased`}
       >
+           <Navbar/>
         {children}
         <CyberpunkFooter />
       </body>

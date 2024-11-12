@@ -4,10 +4,12 @@ import AboutFeline from './components/About'
 import LiveSchedule from './components/LiveSchedule'
 import FelineJerseys from './components/Jersey'
 import FelineAchievements from './components/Achievements'
+import Navbar from './components/navbar'
 
 const page = () => {
   return (
     <div>
+      <Navbar/>
       <Hero/>
       <AboutFeline/>
       <FelineAchievements/>

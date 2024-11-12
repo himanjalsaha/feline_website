@@ -49,7 +49,7 @@ export default function Hero() {
 
 
       {/* Navigation */}
-      <nav className="relative z-50">
+      {/* <nav className="relative z-50">
         <div className="container mx-auto px-4">
           <div className="flex h-14 items-center justify-between">
             <motion.div
@@ -97,7 +97,7 @@ export default function Hero() {
             </motion.button>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Content */}
       <div className="relative container mx-auto px-4 pt-24 pb-32">
