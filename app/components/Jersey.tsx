@@ -6,6 +6,7 @@ import { ExternalLink, RotateCcw } from 'lucide-react'
 import Image from 'next/image'
 import { TacticalElement } from './About'
 import Gradient from './Gradient'
+import Link from 'next/link'
 
 const jersey = {
   name: 'Fall-Kit 2024-2025',
@@ -37,7 +38,7 @@ export default function FelineJerseyShowcase() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12 lg:mb-16 space-y-4 sm:space-y-0">
           <div className="space-y-1">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-              Feline <Gradient><span className=' font-asgard'>J</span>ersey</Gradient>
+              Felines <Gradient><span className=' font-asgard'>J</span>ersey</Gradient>
             </h2>
             <TacticalElement>SYS.APPAREL</TacticalElement>
           </div>
@@ -125,7 +126,7 @@ export default function FelineJerseyShowcase() {
                     <div className="h-px flex-grow bg-[#613AE8]/20" />
                   </div>
                   <ul className="list-disc list-inside text-gray-300 text-sm sm:text-base space-y-1">
-                    <li>Designed by Six5Six (@six5sixsport)</li>
+                    <li className='flex gap-2  items-center'>Designed by Six5Six <Link className=' text-blue-500'  href='https://www.instagram.com/six5sixsport/'>(@six5sixsport)</Link> <Image src='/six.png' alt='six5six' width={50} height={50}/></li>
                     <li>Sleek Gradient Waves design</li>
                     <li>Moisture-wicking fabric</li>
                     <li>Breathable mesh panels</li>
@@ -140,7 +141,7 @@ export default function FelineJerseyShowcase() {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#613AE8] to-[#DB2777] rounded transform transition-transform group-hover:scale-105" />
                   <div className="relative bg-[#0F1629] rounded m-[1px] p-3 sm:p-4 transition-transform group-hover:bg-transparent">
                     <span className="flex items-center justify-center text-white text-sm sm:text-base font-medium">
-                      Coming Soon <ExternalLink className="ml-2 w-4 h-4" />
+                      Order now <ExternalLink className="ml-2 w-4 h-4" />
                     </span>
                   </div>
                 </a>

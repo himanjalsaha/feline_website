@@ -32,7 +32,7 @@ export default function CyberpunkFooter() {
               >
                 <span className="text-xs font-mono text-[#613AE8] mb-2 block">フォルカフォルカ_</span>
                 <h2 className="text-2xl font-bold tracking-tight">
-                  <span className="text-white">[FELINE]</span>
+                  <span className="text-white">[FELINES]</span>
                   <span className="text-[#613AE8]">.ERA</span>
                   <span className="text-blue-400">2.0</span>
                 </h2>
@@ -134,7 +134,7 @@ export default function CyberpunkFooter() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2">
               <span className="text-xs font-mono text-gray-400">©2024_</span>
-              <span className="text-xs font-mono text-[#613AE8]">FELINE.SYSTEMS</span>
+              <span className="text-xs font-mono text-[#613AE8]">FELINES.SYSTEMS</span>
             </div>
             <div className="flex space-x-8">
               <motion.a 

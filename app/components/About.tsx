@@ -62,7 +62,7 @@ export default function AboutFeline() {
   <div className="space-y-2">
     <TacticalElement>GAME.ON</TacticalElement>
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-4">
-      About <span className="text-[#613AE8] font-mono">[FELINE]</span> <Gradient><span className='font-asgard'>E</span>-sports</Gradient>
+      About <span className="text-[#613AE8] font-mono">[FELINES]</span> <Gradient><span className='font-asgard'>E</span>-sports</Gradient>
     </h2>
   </div>
   <div className="flex items-center space-x-4">
@@ -80,14 +80,14 @@ export default function AboutFeline() {
                 {'>'} SYSTEM.INITIALIZING_
               </p>
               <p className="text-lg text-gray-300">
-                Feline Esports is not just a team – we are a force built for competitive excellence. Our players push beyond limits, engaging in the most intense battles in esports to secure victories across every front.
+                Felines Esports is not just a team – we are a force built for competitive excellence. Our players push beyond limits, engaging in the most intense battles in esports to secure victories across every front.
               </p>
               <div className="flex items-center space-x-4">
                 <div className="h-px flex-grow bg-gradient-to-r from-[#613AE8] to-transparent"></div>
                 <TacticalElement>MISSION.READY</TacticalElement>
               </div>
               <p className="text-lg text-gray-300">
-                Each member of the Feline squad is strategically deployed with a singular focus: to dominate and innovate in esports. With precision and skill, we strive to redefine what it means to compete.
+                Each member of the Felines squad is strategically deployed with a singular focus: to dominate and innovate in esports. With precision and skill, we strive to redefine what it means to compete.
               </p>
             </div>
           </AnimatedSection>
@@ -143,7 +143,7 @@ export default function AboutFeline() {
         <div className="mt-16 text-center">
   <TacticalElement>JOIN.THE.SQUAD</TacticalElement>
   <p className="mt-4 text-lg text-gray-300 font-mono">
-    {'>'} Ready for battle? Join Feline Esports, where the best compete, innovate, and dominate.
+    {'>'} Ready for battle? Join Felines Esports, where the best compete, innovate, and dominate.
   </p>
   <div className='space-y-4 gap-5 mt-10'>
   <Link href="/players">
