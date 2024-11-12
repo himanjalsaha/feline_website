@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Trophy, Target, Crosshair } from 'lucide-react'
+import { Trophy, Award } from 'lucide-react'
+import Image from 'next/image'
 
-const FadeInWhenVisible = ({ children } ) => {
+const FadeInWhenVisible = ({ children }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -32,6 +33,8 @@ export default function FelineAchievements() {
     }, 1000)
     return () => clearInterval(timer)
   }, [])
+
+  const achievements = [ { icon: Trophy, title: "Snapdragon ESL Pro Series", description: "LAN Finalist", year: "2024", logo: "/snapdragon.png" }, { icon: Trophy, title: "CODM World Championship", description: "Finished 5th", year: "2024", logo: "/callofduty.png" }, { icon: Trophy, title: "i2K Underdog League", description: "Champions", year: "2024", logo: "/i2kt.png" }, { icon: Award, title: "CODM Tussle Thrive", description: "2nd Runners Up", year: "2024", logo: "/tussle.png" } ]
 
   return (
     <div className="relative min-h-screen bg-[#0B0014] text-white overflow-hidden">
@@ -80,49 +83,36 @@ export default function FelineAchievements() {
           </div>
         </FadeInWhenVisible>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-          <FadeInWhenVisible>
-            <motion.div
-              className="bg-[#1A1A2E]/50 backdrop-blur-sm border border-[#613AE8]/20 p-8 rounded-lg relative group"
-            >
-              <Trophy className="w-8 h-8 text-[#613AE8] mb-4" />
-              <h3 className="text-2xl font-bold mb-2">World Finals</h3>
-              <p className="text-gray-400 mb-4">Top 3 Finish in CODM Championship</p>
-              <div className="text-4xl font-bold text-[#613AE8]">2024</div>
-              <div className="absolute bottom-4 right-4 text-xs font-mono text-[#613AE8] opacity-0 group-hover:opacity-100 transition-opacity">
-                ACHIEVEMENT.01
-              </div>
-            </motion.div>
-          </FadeInWhenVisible>
-
-          <FadeInWhenVisible>
-            <motion.div
-              className="bg-[#1A1A2E]/50 backdrop-blur-sm border border-[#613AE8]/20 p-8 rounded-lg relative group"
-            >
-              <Target className="w-8 h-8 text-[#613AE8] mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Regional Masters</h3>
-              <p className="text-gray-400 mb-4">Champions of South Asian Division</p>
-              <div className="text-4xl font-bold text-[#613AE8]">2023</div>
-              <div className="absolute bottom-4 right-4 text-xs font-mono text-[#613AE8] opacity-0 group-hover:opacity-100 transition-opacity">
-                ACHIEVEMENT.02
-              </div>
-            </motion.div>
-          </FadeInWhenVisible>
-
-          <FadeInWhenVisible>
-            <motion.div
-              className="bg-[#1A1A2E]/50 backdrop-blur-sm border border-[#613AE8]/20 p-8 rounded-lg relative group"
-            >
-              <Crosshair className="w-8 h-8 text-[#613AE8] mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Win Streak</h3>
-              <p className="text-gray-400 mb-4">28 Consecutive Professional Wins</p>
-              <div className="text-4xl font-bold text-[#613AE8]">2023</div>
-              <div className="absolute bottom-4 right-4 text-xs font-mono text-[#613AE8] opacity-0 group-hover:opacity-100 transition-opacity">
-                ACHIEVEMENT.03
-              </div>
-            </motion.div>
-          </FadeInWhenVisible>
+        {/* Achievements Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+          {achievements.map((achievement, index) => (
+            <FadeInWhenVisible key={index}>
+              <motion.div
+                className="bg-[#1A1A2E]/50 backdrop-blur-sm border border-[#613AE8]/20 p-8 rounded-lg relative group h-[300px] flex flex-col justify-between"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <achievement.icon className="w-10 h-10 text-[#613AE8]" />
+                  <Image
+                    src={achievement.logo}
+                    alt={`${achievement.title} logo`}
+                    width={80}
+                    height={80}
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">{achievement.title}</h3>
+                  <p className="text-gray-400 mb-4">{achievement.description}</p>
+                </div>
+                <div className="flex justify-between items-end">
+                  <div className="text-4xl font-bold text-[#613AE8]">{achievement.year}</div>
+                  <div className="text-xs font-mono text-[#613AE8] opacity-0 group-hover:opacity-100 transition-opacity">
+                    ACHIEVEMENT.0{index + 1}
+                  </div>
+                </div>
+              </motion.div>
+            </FadeInWhenVisible>
+          ))}
         </div>
 
         {/* Bottom Stats */}
@@ -149,16 +139,13 @@ export default function FelineAchievements() {
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold bg-gradient-to-r from-[#2563EB] to-[#DC2626] text-transparent bg-clip-text">
-                  5
+                  4
                 </div>
                 <div className="text-xs font-mono text-[#613AE8] mt-2">MAJOR TITLES</div>
               </div>
             </div>
           </div>
         </FadeInWhenVisible>
-
-        {/* Bottom Tag */}
-      
       </div>
     </div>
   )

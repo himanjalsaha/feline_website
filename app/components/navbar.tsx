@@ -55,7 +55,7 @@ export default function Navbar() {
                   <NavLink onClick={() => scrollToSection('about')}>About</NavLink>
                   <NavLink onClick={() => scrollToSection('achievements')}>Achievements</NavLink>
                   <NavLink onClick={() => scrollToSection('jerseys')}>Jerseys</NavLink>
-                  <NavLink onClick={() => scrollToSection('schedule')}>Schedule</NavLink>
+                  {/* <NavLink onClick={() => scrollToSection('schedule')}>Schedule</NavLink> */}
                 </>
               ) : (
                 <>

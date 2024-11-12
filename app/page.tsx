@@ -24,9 +24,9 @@ const Page = () => {
       <section id="jerseys">
         <FelineJerseys />
       </section>
-      <section id="schedule">
+      {/* <section id="schedule">
         <LiveSchedule />
-      </section>
+      </section> */}
     </div>
   )
 }
