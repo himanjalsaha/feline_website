@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="text-xl flex justify-start items-center font-bold text-white tracking-wider">
-              フェリン // FELINE
+              フェリン // FELINES
               <Image src="/logo.png" alt="logo" width={100} height={100} className="size-14 p-2"/>
             </Link>
           </div>
