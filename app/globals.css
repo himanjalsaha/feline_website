@@ -17,5 +17,13 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-helvetica-neue), Arial, sans-serif;
+}
+
+.font-asgard {
+  font-family: var(--font-asgard), var(--font-helvetica-neue), Arial, sans-serif;
+}
+
+.font-helveticabold {
+  font-family: var(--font-helvetica-neue-bold), var(--font-helvetica-neue-bold), Arial, sans-serif;
 }

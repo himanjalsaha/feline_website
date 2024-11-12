@@ -38,7 +38,7 @@ export default function Hero() {
   style={{ objectFit: "cover", objectPosition: "center" }}
   priority
   className={`z-0 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
-      onLoadingComplete={() => setIsImageLoaded(true)}
+      onLoad={() => setIsImageLoaded(true)}
 />
 
 
@@ -130,7 +130,7 @@ export default function Hero() {
               WE ARE
               <br />
               <span className="relative inline-block">
-                TEAM{" "}
+                T<span className="font-asgard">E</span>AM{" "}
                 <span className="bg-gradient-to-r from-[#2563EB] via-[#613AE8] to-[#DC2626] text-transparent bg-clip-text">FELINES</span>
                 <motion.div
                   initial={{ width: 0 }}

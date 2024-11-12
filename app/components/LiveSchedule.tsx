@@ -206,7 +206,7 @@ export default function EsportsMatchShowcase() {
         >
           <StatusBadge>LIVE.MATCHES</StatusBadge>
           <h2 className="text-2xl text-nowrap sm:text-3xl md:text-4xl font-bold mt-2 sm:mt-3 md:mt-4 mb-2 sm:mb-3 md:mb-2">
-  <span className="text-[#613AE8]">[FELINE]</span> MATCH <Gradient> SCHEDULE_</Gradient>
+  <span className="text-[#613AE8]">[FELINE]</span> MATCH <Gradient> <span className='font-asgard'>S</span>CHEDULE_</Gradient>
 </h2>
 
           <p className="text-[#613AE8]/70 font-mono">Compete. Dominate. Conquer.</p>

@@ -73,7 +73,7 @@ export default function FelineAchievements() {
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4">
               HALL OF{' '}
               <span className="bg-gradient-to-r from-[#2563EB] via-[#613AE8] to-[#DC2626] text-transparent bg-clip-text">
-                FAME
+                F<span className='font-asgard'>A</span>ME
               </span>
             </h2>
             <div className="text-sm font-mono text-[#613AE8] mt-2">VERSION 2.0</div>
@@ -158,15 +158,7 @@ export default function FelineAchievements() {
         </FadeInWhenVisible>
 
         {/* Bottom Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center"
-        >
-          <div className="text-xs font-mono text-[#613AE8] mb-2">#FORCAFELINES</div>
-          <div className="text-sm text-gray-400">Join the pack and witness greatness</div>
-        </motion.div>
+      
       </div>
     </div>
   )

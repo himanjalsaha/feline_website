@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import EsportsFooter from "./components/footer";
 import CyberpunkFooter from "./components/footer";
 
 const geistSans = localFont({
@@ -9,10 +8,30 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const helveticaNeue = localFont({
+  src: "./fonts/HelveticaNeueLTProLt.otf",
+  variable: "--font-helvetica-neue",
+  display: "swap",
+});
+
+const helveticaNeuebold = localFont({
+  src: "./fonts/HelveticaNeueLTProBlkIt.otf",
+  variable: "--font-helvetica-neue",
+  display: "swap",
+});
+
+
+const asgard = localFont({
+  src: "./fonts/Asgard.otf",
+  variable: "--font-asgard",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,10 +47,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${helveticaNeue.variable} ${asgard.variable}  font-helvetica-neue antialiased`}
       >
         {children}
-        <CyberpunkFooter/>
+        <CyberpunkFooter />
       </body>
     </html>
   );

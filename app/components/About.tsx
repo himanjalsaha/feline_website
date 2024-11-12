@@ -62,7 +62,7 @@ export default function AboutFeline() {
   <div className="space-y-2">
     <TacticalElement>GAME.ON</TacticalElement>
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-4">
-      About <span className="text-[#613AE8] font-mono">[FELINE]</span> <Gradient>Esports</Gradient>
+      About <span className="text-[#613AE8] font-mono">[FELINE]</span> <Gradient><span className='font-asgard'>E</span>-sports</Gradient>
     </h2>
   </div>
   <div className="flex items-center space-x-4">

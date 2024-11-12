@@ -12,6 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'helvetica-neue': ['var(--font-helvetica-neue)', 'Arial', 'sans-serif'],
+        'helvetica-neue-bold': ['var(--font-helvetica-neue-bold)', 'Arial', 'sans-serif'],
+        'asgard': ['var(--font-asgard)', 'var(--font-helvetica-neue)', 'Arial', 'sans-serif'],
+      },
     },
   },
   plugins: [],

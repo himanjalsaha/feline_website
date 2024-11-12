@@ -37,7 +37,7 @@ export default function FelineJerseyShowcase() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12 lg:mb-16 space-y-4 sm:space-y-0">
           <div className="space-y-1">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-              Feline <Gradient>Jersey</Gradient>
+              Feline <Gradient><span className=' font-asgard'>J</span>ersey</Gradient>
             </h2>
             <TacticalElement>SYS.APPAREL</TacticalElement>
           </div>
@@ -94,7 +94,7 @@ export default function FelineJerseyShowcase() {
               {/* Jersey Details */}
               <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h3 className="text-2xl font-mono sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-[#613AE8] to-[#DB2777] text-transparent bg-clip-text">
+                  <h3 className="text-2xl  sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-[#613AE8] to-[#DB2777] text-transparent bg-clip-text">
                     {jersey.name}
                   </h3>
                   <p className="text-gray-300 text-sm sm:text-base lg:text-lg">
