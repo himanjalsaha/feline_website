@@ -119,7 +119,7 @@ export default function AboutFeline() {
           </AnimatedSection>
         </div>
 
-        <AnimatedSection delay={0.2}>
+        {/* <AnimatedSection delay={0.2}>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: 'Matches Won', value: '300+', subtitle: 'Incredible wins across tournaments' },
@@ -137,7 +137,7 @@ export default function AboutFeline() {
               </div>
             ))}
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
 
         <AnimatedSection delay={0.2}>
         <div className="mt-16 text-center">

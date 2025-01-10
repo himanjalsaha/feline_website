@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion'
 import {  Twitch, Youtube } from 'lucide-react'
-import { BsDiscord } from 'react-icons/bs'
+import { BsDiscord, BsInstagram } from 'react-icons/bs'
 import { FaXTwitter } from "react-icons/fa6";
 const socialLinks = [
-  { name: 'Twitter', icon: FaXTwitter, url: 'https://twitter.com/feline' },
-  { name: 'Twitch', icon: Twitch, url: 'https://twitch.tv/feline' },
-  { name: 'Youtube', icon: Youtube, url: 'https://youtube.com/feline' },
-  { name: 'Discord', icon: BsDiscord, url: 'https://discord.gg/feline' },
+  { name: 'Twitter', icon: FaXTwitter, url: 'https://x.com/TeamFelinesIN' },
+  
+  { name: 'Instagram', icon: BsInstagram, url: 'https://www.instagram.com/teamfelines.in' },
+  { name: 'Discord', icon: BsDiscord, url: 'https://discord.gg/7tjx2F2a' },
 ]
 
 export default function CyberpunkFooter() {

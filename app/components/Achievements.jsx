@@ -116,7 +116,7 @@ export default function FelineAchievements() {
         </div>
 
         {/* Bottom Stats */}
-        <FadeInWhenVisible>
+        {/* <FadeInWhenVisible>
           <div className="mt-20 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
@@ -145,7 +145,7 @@ export default function FelineAchievements() {
               </div>
             </div>
           </div>
-        </FadeInWhenVisible>
+        </FadeInWhenVisible> */}
       </div>
     </div>
   )

@@ -10,6 +10,7 @@ const InputField = ({ icon: Icon, type, placeholder, value, onChange, name }) =>
     <input
       type={type}
       placeholder={placeholder}
+      required
       value={value}
       onChange={onChange}
       name={name}
@@ -75,10 +76,23 @@ export default function EnhancedJoinUsPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-  }
+  const handleSubmit = () => {
+    const { name, email, gamertag, role, message } = formData;
+    const subject = encodeURIComponent(`Recruitment Application: ${name}`);
+    const body = encodeURIComponent(`
+      Name: ${name}
+      Email: ${email}
+      Gamertag: ${gamertag}
+      Role/Position: ${role}
+  
+      Message:
+      ${message}
+    `);
+  
+    const mailtoLink = `mailto:recruit@yourteam.com?subject=${subject}&body=${body}`;
+  
+    window.location.href = mailtoLink; // This will open the email client
+  };
 
   return (
     <div className="bg-[#0B0014] text-white min-h-screen py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -106,6 +120,7 @@ export default function EnhancedJoinUsPage() {
               <InputField
                 icon={User}
                 type="text"
+                
                 placeholder="Full Name"
                 value={formData.name}
                 onChange={handleChange}

@@ -50,7 +50,7 @@ export default function Navbar() {
                     Home
                   </Link>
                   <Link href="/players" className="text-purple-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 ease-in-out">
-                    Show Players
+                    Felines forces
                   </Link>
                   <NavLink onClick={() => scrollToSection('about')}>About</NavLink>
                   <NavLink onClick={() => scrollToSection('achievements')}>Achievements</NavLink>
@@ -64,7 +64,7 @@ export default function Navbar() {
                   </Link>
                 
                   <Link href="/players" className="text-purple-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-300 ease-in-out">
-                    Show Players
+                  Felines forces
                   </Link>
                 </>
               )}
@@ -115,7 +115,7 @@ export default function Navbar() {
                   Join Force
                 </Link>
                 <Link href="/players" className="block text-purple-300 hover:text-white px-3 py-2 text-base font-medium transition-colors duration-300 ease-in-out">
-                  Show Players
+                Felines forces
                 </Link>
               </>
             )}
