@@ -89,7 +89,7 @@ export default function EnhancedJoinUsPage() {
       ${message}
     `);
   
-    const mailtoLink = `mailto:recruit@yourteam.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:teamfelines.in@gmail.com?subject=${subject}&body=${body}`;
   
     window.location.href = mailtoLink; // This will open the email client
   };
