@@ -38,58 +38,78 @@ interface PlayerCardProps extends Player {
   isVisible: boolean;
 }
 
+const LoadingCard = () => (
+  <motion.div 
+    className="bg-[#0B0014] rounded-none border border-[#613AE8]/30"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: 20 }}
+    transition={{ duration: 0.3 }}
+  >
+    <div className="relative aspect-square overflow-hidden">
+      <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#613AE8] z-10" />
+      <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#613AE8] z-10" />
+      <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#613AE8] z-10" />
+      <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#613AE8] z-10" />
+      
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B0014] via-[#1a1a1a] to-[#0B0014] animate-pulse">
+        <div className="h-full w-full bg-gradient-to-r from-transparent via-[#613AE8]/10 to-transparent animate-shimmer" 
+          style={{ 
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 2s infinite linear'
+          }}
+        />
+      </div>
+      
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0014] via-[#0B0014]/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="w-32 h-6 bg-[#613AE8]/20 rounded animate-pulse mb-2" />
+        <div className="w-48 h-8 bg-[#613AE8]/10 rounded animate-pulse" />
+      </div>
+    </div>
+    <div className="p-4 flex justify-between items-center border-t border-[#613AE8]/30 bg-[#0B0014]/80">
+      <div className="w-24 h-6 bg-[#613AE8]/20 rounded animate-pulse" />
+    </div>
+  </motion.div>
+)
+
 const PlayerCard = ({ name, role, image, isVisible }: PlayerCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageError, setImageError] = useState(false)
 
-  // Reset states when image changes
   useEffect(() => {
     setImageLoaded(false)
     setImageError(false)
   }, [image])
 
-  // Preload image using window.Image
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const img = new window.Image()
-      img.src = image
-      img.onload = () => setImageLoaded(true)
-      img.onerror = () => setImageError(true)
-    }
-  }, [image])
-
   return (
     <motion.div 
       className="bg-[#0B0014] rounded-none border border-[#613AE8]/30 group"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: isVisible && imageLoaded ? 1 : 0, y: isVisible && imageLoaded ? 0 : 20 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.5 }}
-      role="article"
-      aria-label={`Player profile for ${name}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="relative aspect-square overflow-hidden">
-        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#613AE8] z-10" aria-hidden="true" />
-        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#613AE8] z-10" aria-hidden="true" />
-        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#613AE8] z-10" aria-hidden="true" />
-        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#613AE8] z-10" aria-hidden="true" />
+        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#613AE8] z-10" />
+        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#613AE8] z-10" />
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#613AE8] z-10" />
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#613AE8] z-10" />
         
-        {(!imageLoaded || !isVisible) && <ImageSkeleton />}
+        {!imageLoaded && <ImageSkeleton />}
         
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: imageLoaded && isVisible ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Image 
-            width={400} 
-            height={400} 
-            src={imageError ? '/placeholder.svg?height=400&width=400' : image} 
-            alt={`${name}'s profile picture`}
-            className="w-full h-full object-cover object-center"
-            priority={true}
-          />
-        </motion.div>
+        <Image 
+          width={400} 
+          height={400} 
+          src={imageError ? '/placeholder.svg?height=400&width=400' : image} 
+          alt={`${name}'s profile picture`}
+          className={`w-full h-full object-cover object-center transition-opacity duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+          priority={true}
+        />
         
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0014] via-[#0B0014]/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -109,11 +129,12 @@ export default function PlayersShowcase() {
   const [activeRoster, setActiveRoster] = useState<RosterType>('fps')
   const [isChanging, setIsChanging] = useState(false)
   const [currentRoster, setCurrentRoster] = useState<Player[]>([])
+  const [nextRoster, setNextRoster] = useState<Player[]>([])
 
   const rosters = {
     fps: [
       { name: "DOPE", image: "/DOPE.webp" },
-      { name: "VIRUS", image: "/VIRUSW.webp" },
+      { name: "VIRUS", image: "/VIRUS.webp" },
       { name: "WARLORD", image: "/WARLORD.webp" },
       { name: "LUIGI", image: "/LUIGI.webp" },
       { name: "ILLUSION", image: "/ILLUSION.webp" },
@@ -131,26 +152,32 @@ export default function PlayersShowcase() {
     ],
   }
 
-  // Handle roster change with window.Image
   const handleRosterChange = async (newRoster: RosterType) => {
+    if (newRoster === activeRoster) return
+    
     setIsChanging(true)
     setActiveRoster(newRoster)
+    setNextRoster(rosters[newRoster])
     
-    // Preload all images from the new roster
+    // Wait for next render to show loading state
+    await new Promise(resolve => setTimeout(resolve, 0))
+    
+    // Preload all images
     if (typeof window !== 'undefined') {
       await Promise.all(
-        rosters[newRoster].map((player) => {
-          return new Promise((resolve) => {
+        rosters[newRoster].map(player => 
+          new Promise((resolve) => {
             const img = new window.Image()
             img.src = player.image
             img.onload = resolve
             img.onerror = resolve
           })
-        })
+        )
       )
     }
-
+    
     setCurrentRoster(rosters[newRoster])
+    setNextRoster([])
     setIsChanging(false)
   }
 
@@ -209,13 +236,19 @@ export default function PlayersShowcase() {
           aria-label="Player roster"
         >
           <AnimatePresence mode="wait">
-            {currentRoster.map((player, index) => (
-              <PlayerCard 
-                key={`${player.name}-${activeRoster}`} 
-                {...player} 
-                isVisible={!isChanging}
-              />
-            ))}
+            {isChanging ? (
+              nextRoster.map((_, index) => (
+                <LoadingCard key={`loading-${index}`} />
+              ))
+            ) : (
+              currentRoster.map((player) => (
+                <PlayerCard 
+                  key={`${player.name}-${activeRoster}`}
+                  {...player}
+                  isVisible={true}
+                />
+              ))
+            )}
           </AnimatePresence>
         </div>
 
