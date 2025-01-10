@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Twitter, Twitch, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 const StatusBadge = ({ children }) => (
   <div className="inline-flex items-center space-x-2 font-mono text-xs">
@@ -25,7 +26,7 @@ const PlayerCard = ({ name, role, image, twitter, twitch }) => (
       <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#613AE8] z-10" />
       <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#613AE8] z-10" />
       <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#613AE8] z-10" />
-      <img src={image} alt={name} className="w-full h-full object-cover object-center  scale-100 transition-transform duration-300 group-hover:scale-100" />
+      <Image width={200} height={200} src={image} alt={name} className="w-full h-full object-cover object-center  scale-100 transition-transform duration-300 group-hover:scale-100" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0B0014] via-[#0B0014]/50 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-4">
         <StatusBadge>PLAYER.PROFILE</StatusBadge>
