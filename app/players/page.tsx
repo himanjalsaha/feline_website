@@ -5,6 +5,20 @@ import { motion } from 'framer-motion'
 import { Twitter, Twitch, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 
+type RosterType = 'fps' | 'moba';
+
+interface Player {
+  name: string;
+  image: string;
+  role?: string;
+  twitter?: string;
+  twitch?: string;
+}
+
+type Rosters = {
+  [key in RosterType]: Player[]
+}
+
 // Skeleton loader component
 const ImageSkeleton = () => (
   <div className="absolute inset-0 bg-gradient-to-r from-[#0B0014] via-[#1a1a1a] to-[#0B0014] animate-pulse">
@@ -82,15 +96,15 @@ const PlayerCard = ({ name, role, image, twitter, twitch }: PlayerCardProps) => 
 }
 
 export default function PlayersShowcase() {
-  const [activeRoster, setActiveRoster] = useState('fps')
+  const [activeRoster, setActiveRoster] = useState<RosterType>('fps')
 
-  const rosters = {
+  const rosters: Rosters = {
     fps: [
       { name: "DOPE", image: "/DOPE.webp" },
       { name: "VIRUS", image: "/VIRUS.webp" },
       { name: "WARLORD", image: "/WARLORD.webp" },
       { name: "LUIGI", image: "/LUIGI.webp" },
-      { name: "ILLUSION", image: "/ILLUSION.webp" }
+      { name: "ILLUSION", image: "/ILLUSION.webp" },
     ],
     moba: [
       { name: "DARKSCOPE", image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FDarkscope.webp?alt=media&token=c0921e3f-c42e-484e-85ff-5fc0161c255a" },
@@ -129,8 +143,8 @@ export default function PlayersShowcase() {
           aria-label="Roster categories"
         >
           {[
-            { id: 'fps', label: 'CODM ROSTER' },
-            { id: 'moba', label: 'CONTENT CREATORS' },
+            { id: 'fps' as RosterType, label: 'CODM ROSTER' },
+            { id: 'moba' as RosterType, label: 'CONTENT CREATORS' },
           ].map((roster) => (
             <button
               key={roster.id}
@@ -153,7 +167,7 @@ export default function PlayersShowcase() {
           role="list"
           aria-label="Player roster"
         >
-          {rosters[activeRoster].map((player:any, index:any) => (
+          {rosters[activeRoster].map((player: Player, index: number) => (
             <PlayerCard key={index} {...player} />
           ))}
         </div>
