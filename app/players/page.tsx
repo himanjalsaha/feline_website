@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Twitter, Twitch, ChevronRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 
 type RosterType = 'fps' | 'moba';
@@ -11,12 +11,6 @@ interface Player {
   name: string;
   image: string;
   role?: string;
-  twitter?: string;
-  twitch?: string;
-}
-
-type Rosters = {
-  [key in RosterType]: Player[]
 }
 
 // Skeleton loader component
@@ -40,23 +34,36 @@ const StatusBadge = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-interface PlayerCardProps {
-  name: string;
-  role?: string;
-  image: string;
-  twitter?: string;
-  twitch?: string;
+interface PlayerCardProps extends Player {
+  isVisible: boolean;
 }
 
-const PlayerCard = ({ name, role, image, twitter, twitch }: PlayerCardProps) => {
+const PlayerCard = ({ name, role, image, isVisible }: PlayerCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imageError, setImageError] = useState(false)
+
+  // Reset states when image changes
+  useEffect(() => {
+    setImageLoaded(false)
+    setImageError(false)
+  }, [image])
+
+  // Preload image using window.Image
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const img = new window.Image()
+      img.src = image
+      img.onload = () => setImageLoaded(true)
+      img.onerror = () => setImageError(true)
+    }
+  }, [image])
 
   return (
     <motion.div 
       className="bg-[#0B0014] rounded-none border border-[#613AE8]/30 group"
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: isVisible && imageLoaded ? 1 : 0, y: isVisible && imageLoaded ? 0 : 20 }}
+      exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
       role="article"
       aria-label={`Player profile for ${name}`}
@@ -67,19 +74,22 @@ const PlayerCard = ({ name, role, image, twitter, twitch }: PlayerCardProps) => 
         <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#613AE8] z-10" aria-hidden="true" />
         <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#613AE8] z-10" aria-hidden="true" />
         
-        {!imageLoaded && !imageError && <ImageSkeleton />}
+        {(!imageLoaded || !isVisible) && <ImageSkeleton />}
         
-        <Image 
-          width={400} 
-          height={400} 
-          src={imageError ? '/placeholder.svg?height=400&width=400' : image} 
-          alt={`${name}'s profile picture`}
-          className={`w-full h-full object-cover object-center transition-all duration-300 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setImageLoaded(true)}
-          onError={() => setImageError(true)}
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: imageLoaded && isVisible ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image 
+            width={400} 
+            height={400} 
+            src={imageError ? '/placeholder.svg?height=400&width=400' : image} 
+            alt={`${name}'s profile picture`}
+            className="w-full h-full object-cover object-center"
+            priority={true}
+          />
+        </motion.div>
         
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0014] via-[#0B0014]/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -97,11 +107,13 @@ const PlayerCard = ({ name, role, image, twitter, twitch }: PlayerCardProps) => 
 
 export default function PlayersShowcase() {
   const [activeRoster, setActiveRoster] = useState<RosterType>('fps')
+  const [isChanging, setIsChanging] = useState(false)
+  const [currentRoster, setCurrentRoster] = useState<Player[]>([])
 
-  const rosters: Rosters = {
+  const rosters = {
     fps: [
       { name: "DOPE", image: "/DOPE.webp" },
-      { name: "VIRUS", image: "/VIRUS.webp" },
+      { name: "VIRUS", image: "/VIRUSW.webp" },
       { name: "WARLORD", image: "/WARLORD.webp" },
       { name: "LUIGI", image: "/LUIGI.webp" },
       { name: "ILLUSION", image: "/ILLUSION.webp" },
@@ -118,6 +130,34 @@ export default function PlayersShowcase() {
       { name: "ULTRAEGO", image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-34-57%20Instagram.png?alt=media&token=06a0fca9-b68e-456c-bcfa-4d6195d45302" },
     ],
   }
+
+  // Handle roster change with window.Image
+  const handleRosterChange = async (newRoster: RosterType) => {
+    setIsChanging(true)
+    setActiveRoster(newRoster)
+    
+    // Preload all images from the new roster
+    if (typeof window !== 'undefined') {
+      await Promise.all(
+        rosters[newRoster].map((player) => {
+          return new Promise((resolve) => {
+            const img = new window.Image()
+            img.src = player.image
+            img.onload = resolve
+            img.onerror = resolve
+          })
+        })
+      )
+    }
+
+    setCurrentRoster(rosters[newRoster])
+    setIsChanging(false)
+  }
+
+  // Initialize current roster
+  useEffect(() => {
+    setCurrentRoster(rosters[activeRoster])
+  }, [])
 
   return (
     <div className="bg-[#0B0014] text-white min-h-screen py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -148,12 +188,13 @@ export default function PlayersShowcase() {
           ].map((roster) => (
             <button
               key={roster.id}
-              onClick={() => setActiveRoster(roster.id)}
+              onClick={() => handleRosterChange(roster.id)}
+              disabled={isChanging}
               className={`px-4 py-2 border transition-all ${
                 activeRoster === roster.id 
                   ? 'border-[#613AE8] text-[#613AE8] bg-[#613AE8]/10' 
                   : 'border-gray-700 text-gray-400 hover:border-[#613AE8] hover:text-[#613AE8]'
-              }`}
+              } disabled:opacity-50 disabled:cursor-not-allowed`}
               aria-current={activeRoster === roster.id ? 'page' : undefined}
               aria-label={`View ${roster.label}`}
             >
@@ -167,9 +208,15 @@ export default function PlayersShowcase() {
           role="list"
           aria-label="Player roster"
         >
-          {rosters[activeRoster].map((player: Player, index: number) => (
-            <PlayerCard key={index} {...player} />
-          ))}
+          <AnimatePresence mode="wait">
+            {currentRoster.map((player, index) => (
+              <PlayerCard 
+                key={`${player.name}-${activeRoster}`} 
+                {...player} 
+                isVisible={!isChanging}
+              />
+            ))}
+          </AnimatePresence>
         </div>
 
         <div className="mt-16 text-center">
