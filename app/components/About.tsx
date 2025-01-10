@@ -148,7 +148,7 @@ export default function AboutFeline() {
   <div className='space-y-4 gap-5 mt-10'>
   <Link href="/players">
     <button className="bg-transparent border border-[#613AE8] px-4 py-4 text-sm text-purple-300 hover:bg-[#613AE8]/10 transition-colors">
-      <span className="relative">SHOW PLAYERS</span>
+      <span className="relative">FELINES FORCES</span>
     </button>
   </Link>
 

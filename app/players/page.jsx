@@ -20,13 +20,13 @@ const PlayerCard = ({ name, role, image, twitter, twitch }) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
   >
-    <div className="relative aspect-square overflow-hidden">
+    <div className="relative aspect-square  overflow-hidden">
       <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#613AE8] z-10" />
       <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#613AE8] z-10" />
       <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#613AE8] z-10" />
       <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#613AE8] z-10" />
-      <img src={image} alt={name} className="w-full h-full object-cover object-center  scale-125 transition-transform duration-300 group-hover:scale-110" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0014] via-[#0B0014]/80 to-transparent" />
+      <img src={image} alt={name} className="w-full h-full object-cover object-center  scale-100 transition-transform duration-300 group-hover:scale-100" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0014] via-[#0B0014]/50 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-4">
         <StatusBadge>PLAYER.PROFILE</StatusBadge>
         <h3 className="text-xl font-mono font-bold mt-2 mb-1">[{name}]</h3>
@@ -34,7 +34,7 @@ const PlayerCard = ({ name, role, image, twitter, twitch }) => (
       </div>
     </div>
     <div className="p-4 flex justify-between items-center border-t border-[#613AE8]/30 bg-[#0B0014]/80">
-      <div className="flex space-x-3">
+      {/* <div className="flex space-x-3">
         <a href={twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#613AE8] transition-colors">
           <Twitter className="w-5 h-5" />
           <span className="sr-only">Twitter profile of {name}</span>
@@ -43,7 +43,7 @@ const PlayerCard = ({ name, role, image, twitter, twitch }) => (
           <Twitch className="w-5 h-5" />
           <span className="sr-only">Twitch channel of {name}</span>
         </a>
-      </div>
+      </div> */}
       <StatusBadge>FLN.24</StatusBadge>
     </div>
   </motion.div>
@@ -54,16 +54,26 @@ export default function PlayersShowcase() {
 
   const rosters = {
     fps: [
-      { name: "Mictian", role: "Team Captain", image: "/PLAYER.png", twitter: "https://twitter.com/nightstalker", twitch: "https://twitch.tv/nightstalker" },
-      { name: "Pixel.Martinez", role: "Sniper", image: "/player2.jpg", twitter: "https://twitter.com/pixelmartinez", twitch: "https://twitch.tv/pixelmartinez" },
-      { name: "Blaze.Thompson", role: "Entry Fragger", image: "/player3.png", twitter: "https://twitter.com/blazethompson", twitch: "https://twitch.tv/blazethompson" },
-      { name: "Ghost.Wilson", role: "Support", image: "/player4.png", twitter: "https://twitter.com/ghostwilson", twitch: "https://twitch.tv/ghostwilson" },
+      { name: "DOPE",  image: "/DOPE.webp", twitter: "https://twitter.com/nightstalker", twitch: "https://twitch.tv/nightstalker" },
+      { name: "VIRUS",  image: "/VIRUS.webp", twitter: "https://twitter.com/pixelmartinez", twitch: "https://twitch.tv/pixelmartinez" },
+      { name: "WARLORD",  image: "/WARLORD.webp", twitter: "https://twitter.com/blazethompson", twitch: "https://twitch.tv/blazethompson" },
+      { name: "LUIGI",  image: "/LUIGI.webp", twitter: "https://twitter.com/ghostwilson", twitch: "https://twitch.tv/ghostwilson" },
+      { name: "ILLUSION",  image: "/ILLUSION.webp", twitter: "https://twitter.com/ghostwilson", twitch: "https://twitch.tv/ghostwilson" },
+
     ],
     moba: [
-      { name: "Vortex.Kim", role: "Mid Laner", image: "/placeholder.svg?height=400&width=400", twitter: "https://twitter.com/vortexkim", twitch: "https://twitch.tv/vortexkim" },
-      { name: "Titan.Patel", role: "Top Laner", image: "/placeholder.svg?height=400&width=400", twitter: "https://twitter.com/titanpatel", twitch: "https://twitch.tv/titanpatel" },
-      { name: "Siren.Novak", role: "Support", image: "/placeholder.svg?height=400&width=400", twitter: "https://twitter.com/sirennovak", twitch: "https://twitch.tv/sirennovak" },
-      { name: "JungleKing.Rodriguez", role: "Jungler", image: "/placeholder.svg?height=400&width=400", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "DARKSCOPE", image: "/DARKSCOPE.webp", twitter: "https://twitter.com/vortexkim", twitch: "https://twitch.tv/vortexkim" },
+      { name: "HARSH" , image: "/HARSH.PNG", twitter: "https://twitter.com/titanpatel", twitch: "https://twitch.tv/titanpatel" },
+      { name: "HALOGEN",  image: "/HALOGEN.PNG", twitter: "https://twitter.com/sirennovak", twitch: "https://twitch.tv/sirennovak" },
+      { name: "LEGIT",  image: "/LEGIT.JPG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "MAJOR",  image: "/MAJOR.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "PEPE",  image: "/PEPE.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "RIPPER",  image: "/RIPPER.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "SOUMITROYT",  image: "/SOUMITROYT.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "ULTRAEGO",  image: "/ULTRAEGO.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+
+
+
     ],
     fighting: [
       { name: "Blitz.Johnson", role: "Team Captain", image: "/placeholder.svg?height=400&width=400", twitter: "https://twitter.com/blitzjohnson", twitch: "https://twitch.tv/blitzjohnson" },
@@ -86,7 +96,7 @@ export default function PlayersShowcase() {
         <div className="mb-16">
           <StatusBadge>GAME.ON</StatusBadge>
           <h1 className="text-4xl font-mono font-bold mt-4 mb-2">
-            <span className="text-[#613AE8]">[FELINE]</span> ROSTER_
+            <span className="text-[#613AE8]">[FELINES]</span> ROSTER_
           </h1>
           <div className="flex items-center space-x-2 text-gray-400 font-mono">
             <span>&gt;</span>
@@ -106,9 +116,9 @@ export default function PlayersShowcase() {
 
 <nav className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 font-mono" aria-label="Roster selection">
   {[
-    { id: 'fps', label: 'FPS.SQUAD' },
-    { id: 'moba', label: 'MOBA.TEAM' },
-    { id: 'fighting', label: 'FIGHTING.UNIT' }
+    { id: 'fps', label: 'CODM ROSTER' },
+    { id: 'moba', label: 'CONTENT CREATORS' },
+    
   ].map((roster) => (
     <button
       key={roster.id}

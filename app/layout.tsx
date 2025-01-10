@@ -36,8 +36,8 @@ const asgard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Feline",
-  description: "Team Feline",
+  title: "Felines",
+  description: "Team Felines",
 };
 
 export default function RootLayout({
