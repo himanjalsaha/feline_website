@@ -63,15 +63,15 @@ export default function PlayersShowcase() {
 
     ],
     moba: [
-      { name: "DARKSCOPE", image: "/DARKSCOPE.webp", twitter: "https://twitter.com/vortexkim", twitch: "https://twitch.tv/vortexkim" },
-      { name: "HARSH" , image: "/HARSH.PNG", twitter: "https://twitter.com/titanpatel", twitch: "https://twitch.tv/titanpatel" },
-      { name: "HALOGEN",  image: "/HALOGEN.PNG", twitter: "https://twitter.com/sirennovak", twitch: "https://twitch.tv/sirennovak" },
-      { name: "LEGIT",  image: "/LEGIT.JPG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
-      { name: "MAJOR",  image: "/MAJOR.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
-      { name: "PEPE",  image: "/PEPE.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
-      { name: "RIPPER",  image: "/RIPPER.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
-      { name: "SOUMITROYT",  image: "/SOUMITROYT.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
-      { name: "ULTRAEGO",  image: "/ULTRAEGO.PNG", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "DARKSCOPE", image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FDarkscope.webp?alt=media&token=c0921e3f-c42e-484e-85ff-5fc0161c255a", twitter: "https://twitter.com/vortexkim", twitch: "https://twitch.tv/vortexkim" },
+      { name: "HARSH" , image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-36-08%20Instagram.png?alt=media&token=032e4d3c-6351-484e-a54b-29330a075d64", twitter: "https://twitter.com/titanpatel", twitch: "https://twitch.tv/titanpatel" },
+      { name: "HALOGEN",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-37-19%20Instagram.png?alt=media&token=9472b166-14a8-4682-b8f3-ad3bc7493a40", twitter: "https://twitter.com/sirennovak", twitch: "https://twitch.tv/sirennovak" },
+      { name: "LEGIT",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2017-09-16%20Team%20Felines%20(%40teamfelines.in)%20%E2%80%A2%20Instagram%20photos%20and%20videos.png?alt=media&token=df8f0208-13ec-4c9e-84e3-7025bcffc708", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "MAJOR",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-41-18%20Instagram.png?alt=media&token=14e7c408-f035-4adf-9ff0-a5d591b9bfed", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "PEPE",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-39-47%20Instagram.png?alt=media&token=c2177a6d-bce7-42ff-84b2-35412fe10a88", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "RIPPER",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-40-43%20Instagram.png?alt=media&token=ac517fe9-70cc-46f0-abf2-3733ddd8717b", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "SOUMITROYT",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-38-01%20Instagram.png?alt=media&token=2e759c36-fc98-489c-9b5c-43922310e0be", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
+      { name: "ULTRAEGO",  image: "https://firebasestorage.googleapis.com/v0/b/ui-forge.appspot.com/o/felines%2FScreenshot%202025-01-10%20at%2015-34-57%20Instagram.png?alt=media&token=06a0fca9-b68e-456c-bcfa-4d6195d45302", twitter: "https://twitter.com/jungleking", twitch: "https://twitch.tv/jungleking" },
 
 
 
